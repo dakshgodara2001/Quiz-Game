@@ -1,4 +1,4 @@
-import Home from "./page/Home";
+import Home from "./Home";
 import "./App.css"
 
 
