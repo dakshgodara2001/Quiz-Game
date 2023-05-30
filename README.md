@@ -1,6 +1,6 @@
 # Quiz Game
 
-Quiz Game that allows users to users to arrange a set of numbers in ascending order.
+Quiz Game where user is given 5 random values and he/she has to sort it.
 
 ## Installation
 
