@@ -35,7 +35,13 @@ To use the application, follow these steps:
 3. Drag and drop the numbers to arrange them in ascending order.
 
 
+## Features
 
+The application includes the following features:
+
+- Drag and drop functionality for arranging numbers.
+- Immediate feedback on the correctness of the arrangement.
+- Reset button to clear the current arrangement and start again.
 
 ## Technologies
 
