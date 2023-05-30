@@ -88,7 +88,13 @@ const Home = () => {
       {
         showResult ?
           <div className='resultContainer'>
-            <div className='resultHeading'>{result ? <>Correct Answer <img className='tick' src="https://static.vecteezy.com/system/resources/previews/017/177/933/original/round-check-mark-symbol-with-transparent-background-free-png.png" ></img></> : <>Wrong Answer <div className='cross'>X</div></>}</div>
+            <div className='resultHeading'>
+              {result ? (
+                <>Correct Answer <img className='tick' src="https://static.vecteezy.com/system/resources/previews/017/177/933/original/round-check-mark-symbol-with-transparent-background-free-png.png" alt="Tick Mark" /></>
+              ) : (
+                <>Wrong Answer <div className='cross'>X</div></>
+              )}
+            </div>
             <button onClick={handleOnReset} className={result ? "correctBtn" : "resetBtn"}>RESET</button>
           </div>
           :
@@ -109,7 +115,7 @@ const Home = () => {
                     <div className='dot'></div>
                     <div className='dot'></div>
                   </div>
-                  <img className={inputState[index] ? "disableArrow" : "downArrowIcon"} src={DownArrow} />
+                  <img className={inputState[index] ? "disableArrow" : "downArrowIcon"} src={DownArrow} alt={inputState[index] ? "Disabled Arrow" : "Down Arrow"} />
                   <>{inputState[index] || "Drop"}</>
                 </div>
               ))}
