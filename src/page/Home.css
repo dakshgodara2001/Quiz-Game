@@ -1,0 +1,214 @@
+.homeContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .heading{
+   
+    font-weight: 400;
+    font-size: 35px;
+    margin-top: 100px;
+  }
+  .dropContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .values{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    min-height: 30px;
+    margin-top: 40px;
+    border: 1.5px dashed gray; 
+    padding: 7px 0px 7px 10px;
+    border-radius: 5px;
+    background: rgb(250, 250, 250);
+  }
+  
+  @keyframes openModal {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+  }
+  .resultContainer{
+    animation: openModal 0.25s ;
+  }
+  .value{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:2px dotted #336cdf;
+    width:90px;
+    height:45px;
+    border-radius: 5px;
+    background-color: white;
+    margin-right: 20px;
+    font-weight: 400;
+    color:rgb(97, 97, 97);
+    font-size: 19px;
+    box-shadow: 2px 5px 20px 0px rgba(0,0,0,0.1);
+    
+  }
+  
+  .hideBorder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:90px;
+    height:45px;
+    border-radius: 5px;
+    background-color: white;
+    margin-right: 20px;
+    font-weight: 400;
+    color:rgb(97, 97, 97);
+    font-size: 19px;
+    box-shadow: 2px 5px 20px 0px rgba(0,0,0,0.1);
+    border:none;
+  }
+  .hideBorder{
+    cursor: grab;
+  }
+  .options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:70px;
+    height:50px;
+    border-radius: 4px;
+    background-color: white;
+    margin-right: 10px;
+    font-weight: 400;
+    color:black;
+    font-size: 20px;
+    box-shadow: 6px 7px 10px 0px rgba(0,0,0,0.2);
+  }
+  .options{
+    cursor: grab;
+  }
+  
+  .dragStarting{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:70px;
+    height:50px;
+    border-radius: 4px;
+    background-color: white;
+    margin-right: 10px;
+    font-weight: 400;
+    color:black;
+    font-size: 20px;
+    box-shadow: 6px 7px 10px 0px rgba(0,0,0,0.2);
+    opacity: 0.2;
+  }
+  
+  .fiveDot{
+    margin:5px;
+    width: 20px;
+    height: 22px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .hideFiveDot{
+    display: none;
+  }
+  .dot{
+    width: 5px;
+    height: 5px;
+    background-color: #336cdf;
+    border-radius: 50%;
+    z-index: 3;
+    margin-right:2px;
+  }
+  .downArrowIcon{
+    height:30px;
+    width: 15px;
+    margin-right: 10px;
+    background-color: transparent;
+  }
+  .disableArrow{display: none;}
+  .button{
+    margin-top: 50px;
+    border:none;
+    outline: none;
+    border-radius: 8px;
+    background-color: aliceblue;
+    font-weight: 500;
+    padding:15px 40px;
+    font-weight: 500;
+    font-size: 19px;
+    border:2px solid rgb(219, 219, 219);
+  }
+  .button:hover{
+    cursor: pointer;
+    }
+  .resultContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .resultHeading{
+   
+    font-weight:bold;
+    font-size: 50px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .resetBtn{
+    display: flex;
+    align-self:  center;
+    outline: none;
+    border:none;
+    background-color: red;
+    font-size: 25px;
+    padding: 10px 30px;
+    border-radius: 9px;
+    font-weight: 400;
+    margin-top: 20px;
+    color:white;
+  }
+  .correctBtn{
+    display: flex;
+    align-self:  center;
+    outline: none;
+    border:none;
+    background-color: forestgreen;
+    font-size: 25px;
+    padding: 10px 30px;
+    border-radius: 9px;
+    font-weight: 400;
+    margin-top: 20px;
+    color:white;
+  }
+  .resetBtn:hover{
+    cursor: pointer;
+  }
+  .cross{
+    font-weight: 500;
+    color:red;
+    margin-left: 15px;
+  
+  }
+  .tick{
+    height: 70px;
+    width: 70px;
+    margin-left: 15px;
+  }
+  #setOpacity{
+    background: #bfd4ff;
+   
+  }
