@@ -2,6 +2,8 @@
 
 Quiz Game where user is given 5 random values and he/she has to sort it.
 
+![Screen Shot 2023-05-31 at 1 40 34 AM](https://github.com/dakshgodara2001/Quiz-Game/assets/52131905/5541449a-9b29-45b8-bab0-5f9b43de93c3)
+
 ## Installation
 
 To install and run the project locally, follow these steps:
