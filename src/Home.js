@@ -1,9 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
-import DownArrow from "../icon/arrow-down.svg"
+import React, { useState, useRef, useCallback } from 'react'
 import "./Home.css"
 
+import DownArrow from "./icon/arrow-down.svg"
+
 const randomNumbers = () => {
-  return Array.from({ length: 5 }).map(e => 10 + Math.ceil(Math.random() * 100))
+  let numbers = new Set();
+  while(numbers.size < 5) {
+    numbers.add(10 + Math.ceil(Math.random() * 100));
+  }
+  return Array.from(numbers);
 }
 
 const Home = () => {
@@ -15,73 +20,71 @@ const Home = () => {
   const swap = useRef(false)
 
 
-  const onDragStart = (e, value, isSwap) => {
+  const onDragStart = useCallback((e, value, isSwap) => {
     dragging.current = value;
-    swap.current = isSwap
-  }
-  const onDrop = (e, destination) => {
+    swap.current = isSwap;
+  }, []);
+
+  const onDrop = useCallback((e, destination) => {
     if (dragging.current !== null && destination !== undefined) {
-      // if swap.current = true then dragging.current = index
+      // If the destination is a number (indicating an index)
       if (typeof destination === "number") {
-        if (swap.current) {
-          console.log(dragging.current)
+        // If swap is in progress and the destination is not equal to the current dragging number
+        if (swap.current && inputState[destination] !== dragging.current) {
           setInputState(old => ({
             ...old,
             [destination]: old[dragging.current],
             [dragging.current]: old[destination]
-          }))
-        } else {
-          console.log("this runs")
+          }));
+        } else if (!swap.current && !Object.values(inputState).includes(dragging.current)) {
           setInputState(old => ({
             ...old,
             [destination]: dragging.current
-          }))
+          }));
         }
       } else {
-
+        // Remove the number from its old position
         setInputState(old => ({
-
           ...old,
           [dragging.current]: undefined
-        }))
+        }));
       }
     }
-  }
+  }, [inputState]);
+  
 
-  const handleOnReset = () => {
+  const onDragEnd = useCallback(() => {
+    dragging.current = null;
+    swap.current = false;
+  }, []);
+
+  const onDragOver = useCallback((e) => {
+    e.preventDefault();
+  }, []);
+
+
+  const handleOnReset = useCallback(() => {
     setInputState({});
     setOptions(randomNumbers);
     setShowResult(false);
     setResult(false);
-  }
+  }, []);
 
-  const checkResult = () => {
+
+  const checkResult = useCallback(() => {
     const answer = options.map((v, i) => inputState[i])
-    let sorted = true;
-    for (let i = 0; i < answer.length - 1; i++) {
-      if (answer[i] > answer[i + 1]) {
-        sorted = false;
-        break;
-      }
-    }
+    let sorted = answer.every((v, i, a) => !i || a[i-1] <= v);
 
     setShowResult(true);
     setResult(sorted);
-  }
+  }, [options, inputState]);
 
-  const onDragEnd = () => {
-    dragging.current = null;
-    swap.current = false;
-  }
 
-  const onDragOver = (e) => {
-    e.preventDefault()
-  }
 
   const inputStateArr = Object.values(inputState)
-
-  const enableCheckBtn = !options.map((v, i) => inputState[i]).includes(undefined);
-
+  const answer = options.map((v, i) => inputState[i]);
+  const enableCheckBtn = !answer.includes(undefined);
+  
   return (
     <div className='homeContainer'>
       <div className="heading">Arrange the values in Ascending order</div>
