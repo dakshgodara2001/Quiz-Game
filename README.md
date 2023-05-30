@@ -1,4 +1,3 @@
-```
 # Quiz Game
 
 Quiz Game that allows users to users to arrange a set of numbers in ascending order.
