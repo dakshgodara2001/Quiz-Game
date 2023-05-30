@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react'
 import "./Home.css"
 
-import DownArrow from "./icon/arrow-down.svg"
+import DownArrow from "./icon/down_arrow.svg"
 
 const randomNumbers = () => {
   let numbers = new Set();
@@ -27,9 +27,7 @@ const Home = () => {
 
   const onDrop = useCallback((e, destination) => {
     if (dragging.current !== null && destination !== undefined) {
-      // If the destination is a number (indicating an index)
       if (typeof destination === "number") {
-        // If swap is in progress and the destination is not equal to the current dragging number
         if (swap.current && inputState[destination] !== dragging.current) {
           setInputState(old => ({
             ...old,
@@ -43,7 +41,6 @@ const Home = () => {
           }));
         }
       } else {
-        // Remove the number from its old position
         setInputState(old => ({
           ...old,
           [dragging.current]: undefined
